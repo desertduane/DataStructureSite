@@ -19,9 +19,23 @@ namespace DataStructureSite.Controllers
         }
 
         // GET: Datastructures
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
+        { 
+
+            var structure = from t in _context.Datastructure
+                            select t;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                structure = structure.Where(s => s.Title.Contains(searchString));
+            }
+           
+            return View(await structure.ToListAsync());
+        }
+        [HttpPost]
+        public string Index(string searchString, bool notUsed)
         {
-            return View(await _context.Datastructure.ToListAsync());
+            return "From [HttpPost]Index: filter on " + searchString;
         }
 
         // GET: Datastructures/Details/5
