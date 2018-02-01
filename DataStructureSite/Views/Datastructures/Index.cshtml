@@ -1,4 +1,4 @@
-﻿@model DataStructureSite.Models.Datastructure
+﻿@model IEnumerable<DataStructureSite.Models.Datastructure>
 @using DataStructureSite.Models;
 
 @{
@@ -9,8 +9,8 @@
     Layout = "_Layout";
 }
 <style>
-    #search{
-        width: 150px;
+    #solution {
+        height: 300px;
     }
 </style>
 
@@ -19,13 +19,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<form>
-    <div id="search">
-        <label asp-for="Title" class="control-label">Select a Structure</label>
-        <select asp-for="Title" class="form-control" asp-items="Html.GetEnumSelectList<Structure>()"></select>
-        <span asp-validation-for="Title" class="text-danger"></span>
-    </div>
-</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -41,7 +35,7 @@
             <th></th>
         </tr>
     </thead>
-    @*<tbody>
+    <tbody>
         @foreach (var item in Model)
         {
             <tr>
@@ -52,7 +46,7 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    <pre>@Html.DisplayFor(modelItem => item.Solution)</pre>
+                    <pre id="solution">@Html.DisplayFor(modelItem => item.Solution)</pre>
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
@@ -61,5 +55,5 @@
                 </td>
             </tr>
         }
-    </tbody>*@
+    </tbody>
 </table>

@@ -1,7 +1,18 @@
-﻿
+﻿@model DataStructureSite.Models.Datastructure
+@using DataStructureSite.Models
+
 @{
     Layout = "_Layout";
 }
+<style>
+    #dropDown {
+        width: 150px;
+    }
+</style>
 
 <h1>Home page</h1>
-<p><a asp-controller="Datastructures" asp-action="Index">Data-Structure Page</a></p>
+<div id="dropDown">
+    <label asp-for="Title" class="control-label">Select a Structure</label>
+    <select asp-for="Title" class="form-control" asp-items="Html.GetEnumSelectList<Structure>()"></select>
+    <span asp-validation-for="Title" class="text-danger"></span>
+</div>
