@@ -11,8 +11,4 @@
 </style>
 
 <h1>Home page</h1>
-<div id="dropDown">
-    <label asp-for="Title" class="control-label">Select a Structure</label>
-    <select asp-for="Title" class="form-control" asp-items="Html.GetEnumSelectList<Structure>()"></select>
-    <span asp-validation-for="Title" class="text-danger"></span>
-</div>
+

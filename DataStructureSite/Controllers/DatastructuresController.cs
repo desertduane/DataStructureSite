@@ -19,9 +19,30 @@ namespace DataStructureSite.Controllers
         }
 
         // GET: Datastructures
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string structureTitle, string searchString)
         {
-            return View(await _context.Datastructure.ToListAsync());
+            IQueryable<string> titleQuery = from t in _context.Datastructure
+                                            orderby t.Title
+                                            select t.Title;
+
+            var structure = from t in _context.Datastructure
+                            select t;
+
+            if (!String.IsNullOrEmpty(structureTitle))
+            {
+                structure = structure.Where(t => t.Title.Contains(searchString));
+            }
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                structure = structure.Where(s => s.Title == structureTitle);
+            }
+
+            var structureTitleVM = new StructureTitleViewModel();
+            structureTitleVM.titles = new SelectList(await titleQuery.ToListAsync());
+            structureTitleVM.datastructure = await structure.ToListAsync();
+           
+            return View(structureTitleVM);
         }
 
         // GET: Datastructures/Details/5
