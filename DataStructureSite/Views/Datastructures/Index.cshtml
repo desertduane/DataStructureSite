@@ -1,4 +1,4 @@
-﻿@model DataStructureSite.Models.StructureTitleViewModel
+﻿@model IEnumerable<DataStructureSite.Models.Datastructure>
 @using DataStructureSite.Models;
 
 @{
@@ -22,11 +22,8 @@
 
 <form asp-controller="Datastructures" asp-action="Index" method="get">
     <p>
-       <select asp-for="datastructureTitle" asp-items="Model.titles">
-           <option value="">All</option>
-       </select>
-
-        Title: <in
+        Title: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
     </p>
 </form>
 
