@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<DataStructureSite.Models.Datastructure>
+@using DataStructureSite.Models;
 
 @{
     ViewData["Title"] = "Index";
@@ -7,12 +8,18 @@
 @{
     Layout = "_Layout";
 }
+<style>
+    #solution {
+        height: 300px;
+    }
+</style>
 
 <h2>Index</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
@@ -39,7 +46,7 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Solution)
+                    <pre id="solution">@Html.DisplayFor(modelItem => item.Solution)</pre>
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
