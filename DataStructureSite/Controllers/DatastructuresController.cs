@@ -19,9 +19,9 @@ namespace DataStructureSite.Controllers
         }
 
         // GET: Datastructures
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Datastructure.ToListAsync());
+            return View();
         }
 
         // GET: Datastructures/Details/5
