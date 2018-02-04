@@ -4,11 +4,35 @@
 @{
     Layout = "_Layout";
 }
+<link rel="stylesheet" type="text/css" href="~/style/Style.css" />
 <style>
-    #dropDown {
-        width: 150px;
+    #joke {
+        max-height: 200px;
+        max-width: 200px;
+        margin-left: 2em;
+    }
+    #name{
+        text-align:center;
+    }
+    #description {
+        width: 30%;
+        margin-left: 2em;
     }
 </style>
 
-<h1>Home page</h1>
+<body>
+    <div class="jumbotron">
+        <h2>Data Structure App</h2>
+        <p id="name">By Duane Rush</p>
+    </div>
+    <div>
+        <img id="joke" src="~/images/coder-struggle.jpg" alt="Code Joke" />
+    </div>
+   <p id="description">Welcome to my Data Structure review app. I wanted to out together a small 
+    app that allowed me to compile all the data structures I have come across 
+    on my coding journey. All solutions are presented in C# and were put together in Microsoft
+    Visual Studio 2017.</p>
+
+</body>
+
 

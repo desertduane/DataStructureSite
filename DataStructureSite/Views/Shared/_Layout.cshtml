@@ -4,7 +4,14 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link rel="icon" type="image/png" href="~/Images/favicnHere" />
+    <link rel="icon" type="image/png" href="~/images/atom.png" />
+
+    <style>
+        a img{
+            max-height: 20px;
+            max-width: 20px;
+        }
+    </style>
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -47,7 +54,11 @@
         @RenderBody()
     </section>
     <footer class="panel-footer">
-        <div class="footer">&copy; 2018 - Fun With Structures</div>
+        <div class="footer">&copy; 2018 - Fun With Structures 
+        <a href="https://github.com/desertduane"><img src="~/images/githubicon.svg" /></a>
+        <a href="https://www.linkedin.com/in/duane-rush/"><img src="~/images/linkedinIcon.png" /></a></div>
+        
+        
     </footer>
 </body>
 </html>

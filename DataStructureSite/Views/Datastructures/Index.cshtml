@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<DataStructureSite.Models.Datastructure>
-@using DataStructureSite.Models;
+
 
 @{
     ViewData["Title"] = "Index";
@@ -12,17 +12,21 @@
     #solution {
         height: 300px;
     }
+    #description{
+        max-width: 70%;
+    }
 </style>
 
-<h2>Index</h2>
+<h2>Much Code Such Wow</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
 
+<p>Enter a key word to filter structues</p>
 <form asp-controller="Datastructures" asp-action="Index" method="get">
     <p>
-        Title: <input type="text" name="SearchString">
+        Structure: <input type="text" name="SearchString">
         <input type="submit" value="Filter" />
     </p>
 </form>
@@ -50,7 +54,7 @@
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Description)
+                    <p id="description">@Html.DisplayFor(modelItem => item.Description)</p> 
                 </td>
                 <td>
                     <pre id="solution">@Html.DisplayFor(modelItem => item.Solution)</pre>
